@@ -1,0 +1,51 @@
+.login,
+.error {
+    background-color: #baffef;
+}
+
+.login h1,
+.error h1 {
+    color: #0a0647;
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.error p {
+    color: #0a0647;
+    font-size: 16px;
+    text-align: center;
+}
+
+.signup {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+}
+
+label {
+    color: #0a0647;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input {
+    border-radius: 6px;
+    color: #0a0647;
+    font-size: 16px;
+    background: transparent;
+    padding: 4px 8px;
+    margin-bottom: 16px;
+}
+
+input[type="submit"] {
+    background-color: #0a0647;
+    border: none;
+    color: #fff;
+}
