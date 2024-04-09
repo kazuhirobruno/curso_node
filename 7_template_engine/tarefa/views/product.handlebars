@@ -1,0 +1,9 @@
+{{#with product}}
+    <div class="product-page">
+        <h1>{{name}}</h1>
+        <p class="price">R$ {{price}}</p>
+        {{#if promotional}}
+            <p class="oldPrice">R$ {{oldPrice}}</p>
+        {{/if}}
+    </div>
+{{/with}}

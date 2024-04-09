@@ -1,0 +1,9 @@
+<li>
+    <a href={{this.link}}>
+        <h2>{{this.name}}</h2>
+        <p class="price">Por: R$ {{this.price}}</p>
+        {{#if this.promotional}}
+            <p class="oldPrice">De: R$ {{this.oldPrice}}</p>
+        {{/if}}
+    </a>
+</li>

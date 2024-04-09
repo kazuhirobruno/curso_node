@@ -1,0 +1,68 @@
+nav a {
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+footer p {
+    color: black;
+    font-size: 12px;
+}
+
+body {
+    padding: 8px 32px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+ul li {
+    border: solid 1px gray;
+    border-radius: 6px;
+    list-style: none;
+    padding: 8px 16px;
+    width: 160px;
+}
+
+ul li  a {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2, 
+p {
+    margin: 0;
+}
+
+ul li a,
+ul li a:hover,
+ul li a:focus,
+ul li a:active {
+    text-decoration: none;
+}
+
+ul li a h2 {
+    color: rgb(16, 16, 75);
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+ul li a p.price {
+    color: rgb(16, 16, 75);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+ul li a .oldPrice {
+    color: rgb(16, 16, 75);
+    font-size: 12px;
+    text-decoration:line-through;
+}
