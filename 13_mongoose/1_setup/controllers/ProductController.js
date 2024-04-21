@@ -1,8 +1,8 @@
 const Product = require("../models/Product");
 
-module.exports = class ToughController {
+module.exports = class ProdutController {
   static async showProducts(req, res) {
-    const products = await Product.getProducts();
+    const products = await Product.find().lean();
 
     res.render("products/all", { products });
   }
@@ -11,15 +11,15 @@ module.exports = class ToughController {
     res.render("products/create");
   }
 
-  static createProductPost(req, res) {
+  static async createProductPost(req, res) {
     const name = req.body.name;
     const price = req.body.price;
     const description = req.body.description;
     const image = req.body.image;
 
-    const product = new Product(name, price, description, image);
+    const product = new Product({ name, price, description, image });
 
-    product.save();
+    await product.save();
 
     res.redirect("/products");
   }
@@ -27,7 +27,7 @@ module.exports = class ToughController {
   static async getProduct(req, res) {
     const { id } = req.params;
 
-    const product = await Product.getProductById(id);
+    const product = await Product.findById(id).lean();
 
     res.render("products/product", { product });
   }
@@ -35,14 +35,14 @@ module.exports = class ToughController {
   static async removeProduct(req, res) {
     const { id } = req.params;
 
-    await Product.removeProductById(id);
+    await Product.deleteOne({ _id: id });
 
     res.redirect("/products");
   }
 
   static async editProduct(req, res) {
     const { id } = req.params;
-    const product = await Product.getProductById(id);
+    const product = await Product.findById(id).lean();
 
     res.render("products/edit", { product });
   }
@@ -50,9 +50,9 @@ module.exports = class ToughController {
   static async editProductPost(req, res) {
     const { id, name, image, price, description } = req.body;
 
-    const product = new Product(name, image, price, description);
+    const product = { name, image, price, description };
 
-    await product.updateProduct(id);
+    await Product.updateOne({ _id: id }, product);
 
     res.redirect("/products");
   }
