@@ -44,7 +44,7 @@ module.exports = class PetController {
       weight,
       color,
       available,
-      image: [],
+      images: [],
       user: {
         _id: user._id,
         name: user.name,
@@ -54,7 +54,7 @@ module.exports = class PetController {
     });
 
     images.map((image) => {
-      pet.image.push(image.filename);
+      pet.images.push(image.filename);
     });
 
     try {
@@ -199,10 +199,7 @@ module.exports = class PetController {
     } else {
       updatedData.color = color;
     }
-    if (images.length === 0) {
-      res.status(422).json({ message: "A imagem é obrigatória!" });
-      return;
-    } else {
+    if (images.length > 0) {
       updatedData.image = [];
       images.map((image) => {
         updatedData.image.push(image.filename);
